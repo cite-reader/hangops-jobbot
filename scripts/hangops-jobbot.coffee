@@ -4,7 +4,7 @@ module.exports = (robot) ->
     robot.logger.debug "I heard: #{res.message.text} - so I'll remind now"
     res.reply "If you haven't already, feel free to pin your job description and add it to the Google Doc listed in the topic ---^\n(I've included a direct link for your convenience: https://docs.google.com/spreadsheets/d/1rtHao8rpI2aRA678ASQK-7NXpHcumd4LQGTtq5y7AiE)"
 
-  robot.hear /gdoc (.*)?/i, (res) ->
+  robot.hear /gdoc @?(.*)?/i, (res) ->
     targetuser = res.match[1]
 
     user = robot.adapter.client.rtm.dataStore.getUserByName(targetuser)
